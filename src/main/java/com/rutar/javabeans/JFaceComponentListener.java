@@ -1,44 +1,39 @@
 package com.rutar.javabeans;
 
-import java.awt.Color;
+import java.util.*;
 
 // ............................................................................
 
-public interface JFaceComponentListener {
+public interface JFaceComponentListener extends EventListener {
     
 /**
  * Зміна усмішки
- * @param oldValue стара усмішка
- * @param newValue нова усмішка
+ * @param evt Подія типу JFaceComponentEvent
  */
-public void smileChenged (boolean oldValue, boolean newValue);
+public void smileChange (JFaceComponentEvent evt);
     
 /**
  * Зміна ширини ліній
- * @param oldValue стара ширина ліній
- * @param newValue нова ширина ліній
+ * @param evt Подія типу JFaceComponentEvent
  */
-public void lineWidthChenged (int oldValue, int newValue);
+public void lineWidthChange (JFaceComponentEvent evt);
 
 /**
  * Зміна ширини роту (в градусах)
- * @param oldValue стара гирина роту
- * @param newValue нова ширина роту
+ * @param evt Подія типу JFaceComponentEvent
  */
-public void mouseWidthChenged (int oldValue, int newValue);
+public void mouseWidthChange (JFaceComponentEvent evt);
 
 /**
  * Зміна кольору фону
- * @param oldValue старий колір фону
- * @param newValue новий колір фону
+ * @param evt Подія типу JFaceComponentEvent
  */
-public void backgroundChenged (Color oldValue, Color newValue);
+public void backgroundChange (JFaceComponentEvent evt);
 
 /**
  * Зміна кольору ліній
- * @param oldValue старий колір ліній
- * @param newValue новий колір ліній
+ * @param evt Подія типу JFaceComponentEvent
  */
-public void foregroundChenged (Color oldValue, Color newValue);
+public void foregroundChange (JFaceComponentEvent evt);
 
 }
