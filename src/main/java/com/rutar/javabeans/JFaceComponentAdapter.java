@@ -1,7 +1,5 @@
 package com.rutar.javabeans;
 
-import java.awt.Color;
-
 // ............................................................................
 
 public class JFaceComponentAdapter implements JFaceComponentListener {
@@ -9,19 +7,19 @@ public class JFaceComponentAdapter implements JFaceComponentListener {
 ///////////////////////////////////////////////////////////////////////////////
 
 @Override
-public void smileChenged (boolean oldValue, boolean newValue) {}
+public void smileChange (JFaceComponentEvent evt) {}
 
 @Override
-public void lineWidthChenged (int oldValue, int newValue) {}
+public void lineWidthChange (JFaceComponentEvent evt) {}
 
 @Override
-public void mouseWidthChenged (int oldValue, int newValue) {}
+public void mouseWidthChange (JFaceComponentEvent evt) {}
 
 @Override
-public void backgroundChenged (Color oldValue, Color newValue) {}
+public void backgroundChange (JFaceComponentEvent evt) {}
 
 @Override
-public void foregroundChenged (Color oldValue, Color newValue) {}
+public void foregroundChange (JFaceComponentEvent evt) {}
 
 ///////////////////////////////////////////////////////////////////////////////
 
