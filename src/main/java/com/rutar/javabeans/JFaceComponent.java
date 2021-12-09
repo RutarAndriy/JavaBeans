@@ -170,7 +170,7 @@ for (JFaceComponentListener listener : getListeners()) {
 
         case "smile":      listener.smileChange(event);      break;
         case "lineWidth":  listener.lineWidthChange(event);  break;
-        case "mouthWidth": listener.mouseWidthChange(event); break;
+        case "mouthWidth": listener.mouthWidthChange(event); break;
         case "background": listener.backgroundChange(event); break;
         case "foreground": listener.foregroundChange(event); break;
 

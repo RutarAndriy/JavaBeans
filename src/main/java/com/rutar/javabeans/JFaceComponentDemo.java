@@ -1,11 +1,9 @@
 package com.rutar.javabeans;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+import java.awt.event.*;
+import javax.swing.event.*;
 
 public class JFaceComponentDemo extends JFrame {
 
@@ -14,7 +12,9 @@ public class JFaceComponentDemo extends JFrame {
 public JFaceComponentDemo() {
 
 initComponents();
+resetSettings();
 
+jFaceComponent.addJFaceComponentListener(jFaceComponentListener);
 setLocationRelativeTo(null);
 
 }
@@ -41,6 +41,8 @@ setLocationRelativeTo(null);
         setTitle("JFaceComponent Demo");
         setResizable(false);
 
+        jFaceComponent.setLineWidth(5);
+
         GroupLayout jFaceComponentLayout = new GroupLayout(jFaceComponent);
         jFaceComponent.setLayout(jFaceComponentLayout);
         jFaceComponentLayout.setHorizontalGroup(jFaceComponentLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -59,7 +61,7 @@ setLocationRelativeTo(null);
         jSlider_1.setMaximum(25);
         jSlider_1.setMinimum(1);
         jSlider_1.setToolTipText("");
-        jSlider_1.setValue(1);
+        jSlider_1.setValue(5);
         jSlider_1.setRequestFocusEnabled(false);
         jSlider_1.addChangeListener(formListener);
 
@@ -68,15 +70,20 @@ setLocationRelativeTo(null);
         jSlider_2.addChangeListener(formListener);
 
         jButton_1.setText("Усмішка / Гримаса");
+        jButton_1.setToolTipText("");
+        jButton_1.setActionCommand("smile/unsmile");
         jButton_1.addActionListener(formListener);
 
         jButton_2.setText("Змінити колір ліній");
+        jButton_2.setActionCommand("changeForeground");
         jButton_2.addActionListener(formListener);
 
         jButton_3.setText("Змінити колір фону");
+        jButton_3.setActionCommand("changeBackground");
         jButton_3.addActionListener(formListener);
 
         jButton_4.setText("Очистити налаштування");
+        jButton_4.setActionCommand("resetSettings");
         jButton_4.addActionListener(formListener);
 
         GroupLayout layout = new GroupLayout(getContentPane());
@@ -99,7 +106,7 @@ setLocationRelativeTo(null);
         );
         layout.setVerticalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addComponent(jFaceComponent, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
@@ -158,22 +165,47 @@ setLocationRelativeTo(null);
 
     private void jSliderStateCanged(ChangeEvent evt) {//GEN-FIRST:event_jSliderStateCanged
 
-        System.out.println("Slider");
-        
+    if (evt.getSource() == jSlider_1)
+        { jFaceComponent.setLineWidth(jSlider_1.getValue()); }
+    else
+        { jFaceComponent.setMouthWidth(jSlider_2.getValue()); }
+
     }//GEN-LAST:event_jSliderStateCanged
 
 ///////////////////////////////////////////////////////////////////////////////
 
     private void jButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonActionPerformed
 
-        System.out.println("Button");
+    switch (evt.getActionCommand()) {
+        
+        // Усмішка/гримаса
+        case "smile/unsmile":
+            jFaceComponent.setSmile(!jFaceComponent.isSmile());
+            break;
+        
+        // Колір ліній
+        case "changeForeground":
+            jFaceComponent.setForeground(getRandomColor());
+            break;
+            
+        // Колір фону
+        case "changeBackground":
+            jFaceComponent.setBackground(getRandomColor());
+            break;
+        
+        // Відновити початкові налаштування
+        case "resetSettings":
+            resetSettings();
+            break;
+        
+    }
         
     }//GEN-LAST:event_jButtonActionPerformed
 
 ///////////////////////////////////////////////////////////////////////////////
 
 public static void main (String args[]) {
-
+    
     EventQueue.invokeLater(() -> {
         new JFaceComponentDemo().setVisible(true);
     });
@@ -192,4 +224,77 @@ public static void main (String args[]) {
     private JSlider jSlider_1;
     private JSlider jSlider_2;
     // End of variables declaration//GEN-END:variables
+
+    private Color defaultBackground = null;
+    private Color defaultForeground = null;
+    
+    private final boolean smile = true;
+    private final int lineWidth = 5;
+    private final int mothWidth = 120;
+    
+///////////////////////////////////////////////////////////////////////////////
+
+private void resetSettings() {
+    
+    if (defaultBackground == null) 
+        { defaultBackground = jFaceComponent.getBackground(); }
+    if (defaultForeground == null) 
+        { defaultForeground = jFaceComponent.getForeground(); }
+    
+    jFaceComponent.setSmile(smile);
+    
+    jFaceComponent.setLineWidth(lineWidth);
+    jSlider_1.setValue(lineWidth);
+    
+    jFaceComponent.setMouthWidth(mothWidth);
+    jSlider_2.setValue(mothWidth);
+    
+    jFaceComponent.setBackground(defaultBackground);
+    jFaceComponent.setForeground(defaultForeground);
+    
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+private Color getRandomColor() {
+    return new Color( (int)(Math.random()*255),
+                      (int)(Math.random()*255),
+                      (int)(Math.random()*255) );
+}
+    
+///////////////////////////////////////////////////////////////////////////////
+
+private void printComponentChange (String eventText, JFaceComponentEvent evt) {
+    System.out.println(eventText + " was changed" +
+                                   " from " + evt.getOldValue() +
+                                   " to "   + evt.getNewValue());
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+JFaceComponentListener jFaceComponentListener = new JFaceComponentListener() {
+    
+    @Override
+    public void smileChange (JFaceComponentEvent evt)
+        { printComponentChange("Smile", evt); }
+
+    @Override
+    public void lineWidthChange (JFaceComponentEvent evt)
+        { printComponentChange("Line width", evt); }
+
+    @Override
+    public void mouthWidthChange (JFaceComponentEvent evt)
+        { printComponentChange("Mouth width", evt); }
+
+    @Override
+    public void backgroundChange (JFaceComponentEvent evt)
+        { printComponentChange("Background", evt); }
+
+    @Override
+    public void foregroundChange (JFaceComponentEvent evt)
+        { printComponentChange("Foreground", evt); }
+};
+
+///////////////////////////////////////////////////////////////////////////////
+
 }

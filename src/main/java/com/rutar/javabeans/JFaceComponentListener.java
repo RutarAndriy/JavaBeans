@@ -22,7 +22,7 @@ public void lineWidthChange (JFaceComponentEvent evt);
  * Зміна ширини роту (в градусах)
  * @param evt Подія типу JFaceComponentEvent
  */
-public void mouseWidthChange (JFaceComponentEvent evt);
+public void mouthWidthChange (JFaceComponentEvent evt);
 
 /**
  * Зміна кольору фону

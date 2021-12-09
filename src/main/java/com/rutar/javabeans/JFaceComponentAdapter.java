@@ -13,7 +13,7 @@ public void smileChange (JFaceComponentEvent evt) {}
 public void lineWidthChange (JFaceComponentEvent evt) {}
 
 @Override
-public void mouseWidthChange (JFaceComponentEvent evt) {}
+public void mouthWidthChange (JFaceComponentEvent evt) {}
 
 @Override
 public void backgroundChange (JFaceComponentEvent evt) {}

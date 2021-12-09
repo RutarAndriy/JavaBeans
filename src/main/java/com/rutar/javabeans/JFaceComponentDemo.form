@@ -46,7 +46,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jFaceComponent" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
@@ -75,6 +75,9 @@
   </Layout>
   <SubComponents>
     <Container class="com.rutar.javabeans.JFaceComponent" name="jFaceComponent">
+      <Properties>
+        <Property name="lineWidth" type="int" value="5"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -106,7 +109,7 @@
         <Property name="maximum" type="int" value="25"/>
         <Property name="minimum" type="int" value="1"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
-        <Property name="value" type="int" value="1"/>
+        <Property name="value" type="int" value="5"/>
         <Property name="requestFocusEnabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -125,6 +128,8 @@
     <Component class="javax.swing.JButton" name="jButton_1">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x423;&#x441;&#x43c;&#x456;&#x448;&#x43a;&#x430; / &#x413;&#x440;&#x438;&#x43c;&#x430;&#x441;&#x430;"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="actionCommand" type="java.lang.String" value="smile/unsmile"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonActionPerformed"/>
@@ -133,6 +138,7 @@
     <Component class="javax.swing.JButton" name="jButton_2">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x417;&#x43c;&#x456;&#x43d;&#x438;&#x442;&#x438; &#x43a;&#x43e;&#x43b;&#x456;&#x440; &#x43b;&#x456;&#x43d;&#x456;&#x439;"/>
+        <Property name="actionCommand" type="java.lang.String" value="changeForeground"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonActionPerformed"/>
@@ -141,6 +147,7 @@
     <Component class="javax.swing.JButton" name="jButton_3">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x417;&#x43c;&#x456;&#x43d;&#x438;&#x442;&#x438; &#x43a;&#x43e;&#x43b;&#x456;&#x440; &#x444;&#x43e;&#x43d;&#x443;"/>
+        <Property name="actionCommand" type="java.lang.String" value="changeBackground"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonActionPerformed"/>
@@ -149,6 +156,7 @@
     <Component class="javax.swing.JButton" name="jButton_4">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x41e;&#x447;&#x438;&#x441;&#x442;&#x438;&#x442;&#x438; &#x43d;&#x430;&#x43b;&#x430;&#x448;&#x442;&#x443;&#x432;&#x430;&#x43d;&#x43d;&#x44f;"/>
+        <Property name="actionCommand" type="java.lang.String" value="resetSettings"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonActionPerformed"/>
