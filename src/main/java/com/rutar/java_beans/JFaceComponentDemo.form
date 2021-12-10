@@ -74,7 +74,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="com.rutar.javabeans.JFaceComponent" name="jFaceComponent">
+    <Container class="com.rutar.java_beans.JFaceComponent" name="jFaceComponent">
       <Properties>
         <Property name="lineWidth" type="int" value="5"/>
       </Properties>

@@ -1,4 +1,4 @@
-package com.rutar.javabeans;
+package com.rutar.java_beans;
 
 import java.awt.*;
 

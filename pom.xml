@@ -8,7 +8,7 @@
 
     <groupId>com.rutar</groupId>
     <artifactId>JavaBeans</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <name>JavaBeans</name>
     <url>https://github.com/RutarAndriy/JavaBeans</url>
@@ -55,7 +55,7 @@
                         <archive>
                             <manifest>
                                 <addClasspath>false</addClasspath>
-                                <mainClass>com.rutar.javabeans.JFaceComponentDemo</mainClass>
+                                <mainClass>com.rutar.java_beans.JFaceComponentDemo</mainClass>
                             </manifest>
                         </archive>
                     </configuration>
